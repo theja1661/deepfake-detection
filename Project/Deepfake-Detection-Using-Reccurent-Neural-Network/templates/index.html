@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Fake News Detector</h2>
+
+        <!-- Form for Text-Based Fake News Detection -->
+        <h3>Check News Text</h3>
+        <form action="/predict_text" method="post">
+            <label for="text">Enter news text:</label><br>
+            <textarea id="text" name="text" rows="4" cols="50"></textarea><br><br>
+            <button type="submit">Check News</button>
+        </form>
+
+        <hr>
+
+        <!-- Form for Video-Based Deepfake Detection -->
+        <h3>Check Deepfake Video</h3>
+        <form action="/predict_video" method="post" enctype="multipart/form-data">
+            <label for="file">Upload a video:</label><br>
+            <input type="file" id="file" name="file" accept="video/*"><br><br>
+            <button type="submit">Check Video</button>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

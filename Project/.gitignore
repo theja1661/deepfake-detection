@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+.env/
+
+# Models & ML artifacts
+*.pt
+*.ckpt
+*.h5
+models/
+
+# Data & outputs
+data/
+outputs/
+
+# OS
+.DS_Store
